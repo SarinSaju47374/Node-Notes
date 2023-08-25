@@ -1,0 +1,150 @@
+-> HTTP (Hypertext Transfer Protocol) is a protocol used for transmitting data over 
+   the internet. It is a plaintext protocol, meaning that data is sent in clear text 
+   and can be intercepted and read by anyone with access to the network. In the diagram
+   ,we see that the data transmitted over HTTP is not encrypted, making it vulnerable to 
+   interception and eavesdropping.
+   
++---------+             +---------+
+|         |             |         |
+|  Client |             | Server  |
+|         |             |         |
++---------+             +---------+
+     |                        |
+     |    HTTP request        |
+     |----------------------->|
+     |     (plaintext)        |
+     |                        |
+     |     HTTP response      |
+     |<-----------------------|
+     |     (plaintext)        |
+     |                        |
+
+
+-> HTTPS (Hypertext Transfer Protocol Secure) is a more secure version of HTTP that uses 
+   encryption to protect data transmitted over the internet. In the diagram, we see that 
+   the data transmitted over HTTPS is encrypted, making it more secure and less vulnerable 
+   to interception and eavesdropping. HTTPS uses SSL/TLS (Secure Sockets Layer/Transport Layer 
+   Security) to encrypt data between the client (such as a web browser) and the server (such 
+   as a web server).
+
+
++---------+             +---------+
+|         |             |         |
+|  Client |             | Server  |
+|         |             |         |
++---------+             +---------+
+     |                        |
+     |     HTTP channel       |    HTTPS channel
+     |----------------------->|----------------------->
+     |     (plaintext)        |     (encrypted)
+     |                        |
+     |                        |
+     |     HTTP response      |    HTTPS response
+     |<-----------------------|<-----------------------
+     |     (plaintext)        |     (encrypted)
+     |                        |
+
+
+
+GET Vs POST
+
+-> GET requests are used to retrieve data from a server. GET requests include the 
+   requested resource in  the URL and do not have a request body.
+   Not More then 2000 characters are allowed.
+EG:- 
+
+GET / HTTP/1.1
+Host: www.example.com
+
+
+-> POST requests are used to submit data to a server. POST requests include data in the 
+   request body that the server can use to perform some action.
+   
+EG:-
+
+POST /submit-form HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+name=John+Doe&email=jdoe@example.com
+
+
+   
+Let's say you have a website that allows users to search for products using a search form. 
+The form includes a text input field where users can enter the name of a product they're 
+looking for. The form uses a GET request to submit the search query to the server.
+
+Here's an example URL for a GET request that searches for the product "shoes":
+
+https://example.com/search?q=shoes 
+
+--> In this example, the search query "shoes" is included in the URL as a query parameter 
+   (q=shoes). If a user submits a search query that includes sensitive information, such as
+   a password or personal information, this information could potentially be exposed in the URL.
+   This is query string parameters. ( ctrl+shift+j => network => header => name = > )
+   
+--> On the other hand, if the search form used a POST request instead of a GET request, the 
+    search query would be included in the request body, which is not visible in the URL. This 
+    would make it more difficult for unauthorized parties to intercept and view the search query 
+    and any sensitive information included in it.
+	
+
+### Both GET and POST isnt safe because 
+-> incase of GET the data is added to  query string which we 
+   can either see it in URL or in 
+   ( ctrl+shift+j => network => header => name = > first option =>queryString)
+
+-> incase of POST the dat is stored in FORM DATA 
+( ctrl+shift+j => network => header => name = > first option =>form data)	
+
+
+--->> The solution to this is we must configure SSL/TLSz certificate so that it follows
+      HTTPS protocol where the data is encrypted.
+	
+	SSL (Secure Sockets Layer) and TLS (Transport Layer Security) are cryptographic 
+	protocols used to establish secure communication between two systems over the internet.
+
+---> When you visit a website that uses SSL or TLS, your browser and the website's server 
+     will perform a series of steps to create a secure connection. These steps involve a 
+	 "handshake" process, where the two systems agree on the encryption algorithms and keys 
+	 that will be used to encrypt and decrypt data.
+
+---> Once the handshake is complete, all communication between your browser and the website's 
+	 server is encrypted and secure. This means that any data you send or receive, such as 
+	 login credentials or credit card information, is protected from potential eavesdropping 
+	 or tampering by third parties.
+
+---> In summary, SSL and TLS are essential security protocols that ensure the confidentiality 
+     and integrity of data transmitted over the internet, making online communication and 
+	 transactions safe and secure.
+	 
+	 
+//PUT
+
+PUT: The PUT method is used to update an existing resource on the server. When a client 
+     sends a PUT request to a server, it includes the updated representation of the resource 
+	 in the request body. The server then replaces the existing resource with the updated 
+	 representation.
+	 
+EG:-
+
+PUT /users/123 HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "age": 30
+}
+
+
+DELETE: The DELETE method is used to delete an existing resource from the server. 
+        When a client sends a DELETE request to a server, the server deletes the resource 
+		identified by the URL in the request.
+		
+General Status :- 
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+https://learning.postman.com/docs/sending-requests/requests/#request-status-codes

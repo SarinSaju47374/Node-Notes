@@ -1,0 +1,27 @@
+// What is a Web Server 
+
+-> Sure! A web server is a software program that runs on a computer and accepts requests 
+   from clients (usually web browsers) over the internet, and sends back responses to those 
+   requests. The requests can be for different types of content, like web pages, images, 
+   videos, etc.
+
+-> One popular web server that you might have heard of is Apache. Apache is an open-source 
+   web server that has been around for many years and is widely used. It is written in C 
+   and is known for its stability, scalability, and security.
+
+-> Another example of a web server is NGINX. NGINX is a popular open-source web server that
+   is known for its high performance and scalability. It can also be used as a reverse proxy,
+   load balancer, and HTTP cache.
+
+-> Now let's talk about Express.js, a popular Node.js web framework. Express.js is a 
+   lightweight web framework that is built on top of Node.js. It makes it easy to build 
+   web applications and APIs by providing a simple and intuitive API for handling HTTP 
+   requests and responses.
+
+-> When you use Express.js to build a web application, you are essentially creating 
+   a web server using Node.js. Your Express.js application listens for incoming 
+   requests from clients (web browsers) and sends back responses. Express.js 
+   handles a lot of the low-level details of working with HTTP requests and 
+   responses, allowing you to focus on building your application.
+
+So, to summarize, a web server is a software program that accepts incoming requests from clients (usually web browsers) over the internet, and sends back responses to those requests. Examples of popular web servers include Apache and NGINX. When you use a web framework like Express.js, you are essentially building a web server using Node.js that can handle HTTP requests and responses.

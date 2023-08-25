@@ -1,0 +1,6 @@
+{ 
+    "watch": ["./handlers.js",
+                "./WEBSITE1"],
+    "exec": "node appSession.js" ,
+    "ext": "js, json, hbs"
+}

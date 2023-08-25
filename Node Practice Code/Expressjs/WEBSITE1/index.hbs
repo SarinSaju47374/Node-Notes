@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="warning" style="display:{{var}}">
+            <img src="https://www.pngmart.com/files/17/Caution-Warning-PNG-Pic.png" alt="">
+            <div class="innerWar">
+                <h1>Check your Mail Id or Password</h1>
+                <button class="btn" id="btn">
+                    OK
+                </button>
+            </div>
+    </div>
+    <div class="container">
+        
+        <div class="login">
+            <form action="/login" method="POST">
+                <!-- <i class="fa-brands fa-space-awesome"></i> -->
+                <!-- <img src="https://cdni.iconscout.com/illustration/premium/thumb/astronaut-dancing-on-rocket-4278584-3550529.png" alt=""> -->
+                <div class="logo">
+                    <img src="https://static.vecteezy.com/system/resources/previews/005/190/862/original/astronauts-in-outer-space-flat-concept-icon-cosmonaut-in-spacesuit-floating-in-cosmos-sticker-clipart-interstellar-travelers-space-exploration-isolated-cartoon-illustration-on-white-background-vector.jpg" alt="">
+                </div>
+                <h4>Login Form</h4>
+                <div class="input">
+                    <i class="fa-solid fa-user"></i>    
+                    <input type="email" name="userMail" placeholder="Enter your mail" id="mail">
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="password" name="psswd" placeholder="Enter your password" id="psswd">
+                </div>
+                <button type="submit" class="btn">
+                    Log in
+                </button>
+                <h5>OR</h5>
+                <div class="social">
+                    <button  class="btn-social">
+                        <i class="fa-brands fa-square-facebook"></i>
+                        Facebook
+                    </button>
+                    <button  class="btn-social">
+                        <i class="fa-brands fa-google"></i>
+                        Google
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

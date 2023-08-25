@@ -1,0 +1,84 @@
+** What is Node.js?
+
+-> Ryan Dahl(Google Engineer) in 2009 thought of why not run JS outside Browser.
+   So he embedded V8 Engine with C++ Programm and called it Node.exe later on became Node.js
+
+->Node.js is just an Javascript Run Time Environment.
+
+-> Node.js is an open-source, cross-platform JavaScript runtime environment that allows developers 
+to run JavaScript code outside of a web browser. It is built on the V8 JavaScript engine, 
+which is the same engine used by the Google Chrome browser, and provides an event-driven,
+non-blocking I/O model that makes it well-suited for building scalable, high-performance network
+applications.
+
+>>> open source :- Publicly available
+>>> cross-platform :- Available on Mac , Windows and Linux
+>>> JS runtime Environment :- Runs JS outside Browser.
+
+
+-> Node js runs on server. Built in V8 Engine.
+
+//Fun Fact:-
+
+In 1995 Netscape written a program called Netscape Enterprise Server which allowed Developer 
+to run JS at server side.
+
+
+** Why node Js?
+
+-> I/O Bound
+   Non Blocking Request/Response(Accepts multi requests)
+   
+-> Data Streaming application 
+   Like Netflix or any movie streaming app. When we scroll it never Ends.Kinda like Facebook.
+   
+-> Real time Chat Applications
+
+** When not to use Node Js?
+
+-> Heavy computation: Node.js is single-threaded, which means it may struggle with heavy 
+   computation tasks that require multiple cores to complete in a reasonable amount of time. 
+   In this case, a language that supports multi-threading, such as Java or Python, might be 
+   a better choice.
+
+-> Real-time applications: While Node.js is great for handling a large number of concurrent 
+   connections, it may not be the best option for real-time applications that require low 
+   latency and high throughput, such as online gaming or financial trading. In these cases, 
+   a technology like WebSockets or WebRTC may be a better choice.
+
+-> CPU-intensive tasks: Node.js is optimized for I/O operations, but it may not be the best 
+   choice for CPU-intensive tasks that require significant processing power, such as video 
+   encoding or image manipulation. In these cases, a language like C++ or Rust might be a 
+   better choice.
+
+-> Large applications: While Node.js is great for small to medium-sized applications, it 
+   may not be the best option for very large and complex applications that require a lot
+   of code organization and management. In these cases, a more structured language like 
+   Java or .NET might be a better choice.
+
+-> Lack of expertise: If you or your team are not experienced with JavaScript and its 
+   ecosystem, then it may be difficult to work with Node.js effectively. In this case, 
+   using a technology that your team is already familiar with might be a better choice.
+
+
+
+
+   
+
+CLI------> Command Line Interface (When we wanna seriously use Node the CLI is your friend)
+
+
+//Module
+
+Every File in js is a module.
+
+//Common Js
+
+
+//Sessions
+//Cookies
+//HTTP methods
+//View Engine
+//Authentication,middleware
+// 
+

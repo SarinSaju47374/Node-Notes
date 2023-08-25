@@ -1,0 +1,4 @@
+Hello following is the info i got:-
+                        Info: This is file named first.txt. Salute amigos Mangoes.
+                        Info: This is file named second.txt. Fried chicken Running for Life.
+                        

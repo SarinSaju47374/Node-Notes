@@ -1,0 +1,2 @@
+THis is amazingTHis is Spectacular
+I am the sentence being appended

@@ -1,0 +1,16 @@
+REPL-----> Read Eval-Print Loop (We have to use it only when we wanna play around)
+   
+   
+   READ:- Reads user's input,parses the input into JavaScript data-structure and 
+   stores in memory.
+   
+   Eval:- Takes and evaluates the data Structure
+    
+   Print:- Prints the result.
+   Loop:- Loops the above command until the user presses ctrl-c twice.
+   
+// TO FINISH REPL -->Ctrl+D
+
+// TO VIEW ALL MODULES and many more press TAB key twice
+
+//To view every specific module run the name eg:- >os <- run this code in NODE REPL
