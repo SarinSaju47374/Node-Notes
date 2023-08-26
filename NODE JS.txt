@@ -3,7 +3,7 @@
 -> Ryan Dahl(Google Engineer) in 2009 thought of why not run JS outside Browser.
    So he embedded V8 Engine with C++ Programm and called it Node.exe later on became Node.js
 
-->Node.js is just an Javascript Run Time Environment.
+->Node.js is just an Javascript Run Time Environment. (it ain't a Language nor a Framework)
 
 -> Node.js is an open-source, cross-platform JavaScript runtime environment that allows developers 
 to run JavaScript code outside of a web browser. It is built on the V8 JavaScript engine, 
@@ -82,3 +82,12 @@ Every File in js is a module.
 //Authentication,middleware
 // 
 
+>>Browser vs Node.js
+
+In the browser, most of the time what you are doing is interacting with the DOM, or
+other Web Platform APIs like Cookies. You don't have the document, window and
+all the other objects that are provided by the browser.
+In the browser, we don't have all the nice APIs that Node.js provides through its
+modules. For example the filesystem access functionality.
+With Node.js, you control the environment.
+With a browser, you are at the mercy of what the users choose

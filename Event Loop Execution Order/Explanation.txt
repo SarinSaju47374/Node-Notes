@@ -1,0 +1,127 @@
+** Practical to all these experiments are mentioned in Practical.js
+
+>> Experiment 1
+
+The use written synchronous javascript code takes priority over async code that the runtime
+would like to eventually execute.
+
+>> Experiment 2 
+
+All callbacks in nextTick queue are executed first before callbacks in Promise queue
+
+
+Note :- Use of process.nextTick is not recommended because it can cause the rest of the event loop 
+to starve.
+        If we endlessly call process.nextTick the control will never make it past the microtask
+		queue.
+		
+		
+Two main reasons to use process.nextTick 
+1. To allow users to handle errors, cleanup any then unneeded resources, or perhaps try the 
+	request again before the eventloop continues
+2. To allow a callback to run after the call stack has unwound but before the event loop 
+	continues.
+	
+	
+>> Experiment 3
+
+Callbacks in the microtask queue are executed before callbacks in the timer queue.
+
+>> Experiment 4
+
+Callbacks in microtask queue are executed in between the execution of callbacks in 
+the timer queue.
+
+>> Experiment 5
+
+Timer queues callbacks are executed in FIFO order.
+
+
+Note :- Timer queue actually aint a queue instead its a min Heap Datastructure
+
+>> Experiment 6
+
+Callbacks in the microtask queue are executed before callbacks in the I/O queue.
+
+eg.fs.readFile(__filename,()=>{console.log("Uses I/O queue")}) 
+
+>> Experiment 7
+
+When running setTimeout with delay of 0ms and I/O async method , the order of
+execution can never be guaranteed
+
+Why can the order of execution can never be guaranteed?
+Actually when we use setTimeout(()=>{},0) the 0ms is replaced with 1ms under the hood.
+so depending upon the CPU being busy the control may or maynot tranfer to the next queue.
+
+>> Experiment 8
+
+I/O queue callbacks are executed after the MicroTask queues callbacks and Timer Queue callbacks.
+
+>> Experiment 9 
+
+I/O events are polled and the callbacks functions are added to the I/O queues only after 
+the I/O is complete
+
+
+What is actually I/O polling
+I/O polling is a crucial phase in the Node.js event loop that handles asynchronous I/O 
+operations such as reading/writing files, making network requests, interacting with
+databases, and other input/output operations. This phase is responsible for efficiently
+ managing and executing I/O-related tasks without blocking the entire program's execution.
+
+Here's a detailed breakdown of the I/O polling phase within the Node.js event loop:
+
+I/O Polling Phase: This phase comes after the timers phase and before the check/nextTick
+phase in the event loop. It's responsible for checking if there are any asynchronous I/O 
+operations that are ready to be executed.
+
+I/O Operations: Asynchronous I/O operations like reading from a file, making a network 
+request, or interacting with a database are typically non-blocking. Node.js initiates 
+these operations and registers callbacks to be executed when the I/O operations are complete.
+
+Polling: During the I/O polling phase, Node.js checks the list of pending I/O operations
+to see if any of them have completed. If an I/O operation is ready, its associated callback
+is moved to the next phase of the event loop for execution.
+
+Blocking vs. Non-blocking: Node.js is designed to be non-blocking, which means that it 
+doesn't halt the entire program when waiting for an I/O operation to complete. Instead,
+it continues executing other code and processing other tasks while waiting for I/O 
+operations to finish.
+
+Efficiency: The I/O polling phase is efficient because it allows Node.js to manage many
+I/O operations concurrently without the need to create a separate thread for each operation.
+This is achieved through the event-driven, single-threaded architecture of Node.js.
+
+Event-driven Callbacks: When an I/O operation is ready to deliver its result (data, error,
+or completion), the associated callback is pushed to the callback queue. This queue holds
+callbacks from completed I/O operations and is processed during the next event loop phase.
+
+Event Loop Progression: After processing any ready I/O callbacks, the event loop might move 
+on to the check/nextTick phase, where setImmediate callbacks and process.nextTick callbacks
+are executed.
+
+Handling I/O Callbacks: It's important to note that while I/O callbacks are non-blocking, 
+if you have a large number of pending I/O callbacks that complete simultaneously, they will
+still need to be processed one by one in the order they were added to the callback queue. 
+This means that if one I/O callback takes a long time to process, it can delay the execution
+of other pending callbacks.
+
+In summary, the I/O polling phase of the Node.js event loop is responsible for efficiently
+managing asynchronous I/O operations, allowing them to run concurrently without blocking 
+the program's execution. It's a key component of Node.js's event-driven architecture, 
+enabling high-performance and scalable handling of I/O-bound tasks.
+
+>> Experiment 10 is self explanatory in the code mentioned in Practical.js
+
+>> Experiment 11 is self explanatory in the code mentioned in Practical.js
+
+>> Experiment 12 is self explanatory in the code mentioned in Practical.js
+
+>> Experiment 13 
+	It mentions that if the setTimeout uses ) 0ms the order aint guaranteed.
+	To guarantee the order mentiona time consuming code as mentioned in Practical.js
+
+>> Experiment 14 
+	Close queue callback are executed after all other queues callbacks in a given 
+	iteration of the event loop.

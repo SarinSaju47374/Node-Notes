@@ -1,0 +1,16 @@
+Synchronous code Execution in node Js
+
+Whenever variables are declared the memory is allocated in Memory Heap
+When the code is executed the function is pushed into the call stack and pops after 
+execution(LIFO).
+
+Whenever an async method is executed it will be offloaded to libuv which is then 
+handled using native async mechanisms and if thats not possible it will be handled 
+using Thread Pool ensuring so that the main thread aint blocked.
+
+
+Event Loop 
+Its a C program and is a part of libuv
+
+A design pattern that orchestrates or co-ordinates the execution of synchronous and 
+asynchronous code in Node js.

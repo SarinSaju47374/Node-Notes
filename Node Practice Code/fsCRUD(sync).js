@@ -12,7 +12,7 @@ const fs = require("fs");
 
 try{
     fs.mkdirSync("./CRUD_like");
-    console.log("The folder is successfully");
+    console.log("The folder is successfully created");
 }catch(err){
     console.log(err);
 }

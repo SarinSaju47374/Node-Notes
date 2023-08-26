@@ -1,0 +1,18 @@
+Javascript code cannot be  understood by computer.
+
+A Javascript engine is a program that converts the JS code that developers write to machine
+code that allows computer to perform specific tasks.
+
+V8 - Open source Js engine developed by Google for Chrome (Written in C++)
+Spidermonkey - Js engine powering Mozilla Firefox
+JavaScriptCore - Open source Js engine developed by Apple for safari
+Chakra - Js engine that uses V8 powering Microsoft Edge.
+
+
+
+
+V8 is written in C++ and can be used independently or can be embedded in other C++ programs like
+Node js. 
+
+The features available in C++ and not in JS can be used using Node js.
+

@@ -1,0 +1,82 @@
+libuv
+
+What?
+libuv is a cross platform open source library written in C language
+
+Why?
+handles asynchronous non-blocking operations in Node.js
+
+How?
+Thread pool and event loop
+ 
+ 
+ 
+>> Thread Pool]
+
+Main thread:
+"Hey libuv, I need to read file contents but that is a time consuming task. I don't
+want to block further code from being executed during this time. Can I offload this
+task to you?"
+
+Libuv:
+"Sure, main thread. Unlike you, who is single threaded, I have a pool of threads
+that I can use to run some of these time consuming tasks. When the task is done,
+the file contents are retrieved and the associated callback function can be run."
+ 
+
+ref:- https://youtu.be/I1sqnbJ1Fno?si=aqEd0hMpazPHRm74
+Experiment 1
+Every method in node.js that has "sync" suffix always runs on the main thread and is blocking
+
+Experiment 2
+A few async methods like fs.readFile and crypto.pbkdf2 run on a seperate thread in libuv's 
+thread pool. THey do run synchronously in their own threads but as far as the main threads is 
+concerned , it appears as if method is running asynchronously.
+
+
+ref:- https://youtu.be/3JYNNf3Iljo?si=JsexavzUhW_mfk8z
+Experiment 3
+Libuv's thread pool has 4 threads
+
+Experiment 4
+By increasing the thread pool size , we are able to improve the total time taken to run multiple
+calls of an asynchronous method like pbkdf2
+
+** Each thread takes each core in out PC
+
+Experiment 5
+Increasing the Thread Pool size can help with the performance but that is limited by the number of
+available CPU cores
+
+Experiment 6
+Although both crypto.pbkdf2 and https.request is asynchronous, https.request method does not 
+seem to use the thread pool and is not affected by the number of CPU cores either.
+
+Libuv and Async Methods Summary
+In Node.js, async methods are handled by libuv
+They are handled in two different ways
+1. Native async mechanism 2. Thread pool
+Whenever possible, Libuv will use native async mechanisms in the OS so as to avoid blocking
+the main thread
+Since this is part of the kernel, there is different mechanism for each OS. We have epoll for
+Linux, Kqueue for MacOS and IO Completion Port on Windows
+Relying on native async mechanisms makes Node scalable as the only limitation is the operating
+system kernel
+Example of this type is a network I/O operation
+
+If there is no native async support and the task is file I/O or CPU intensive, libuv
+uses the thread pool to avoid blocking the main thread
+Although the thread pool preserves asynchronicity with respect to Node's main
+thread, it can still become a bottleneck if all threads are busy
+
+
+
+** Important **
+
+Https.request is a network i/o operation and not a CPU bound operation. It does not use  the thread Pool.
+
+Lib UV instead delegates the work to the operating system kernel and whenever possible , it will 
+poll the kernel and see if the request has completed.
+
+
+ 

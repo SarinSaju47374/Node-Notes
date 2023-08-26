@@ -1,0 +1,108 @@
+Modules
+
+A module is an encapsulated and reusable chunk of code that has its own context
+In Node.js, each file is treated as a separate module
+
+Types of Modules
+
+1. Local modules - Modules that we create in our application
+2. Built-in modules - Modules that Node.js ships with out of the box
+3. Third party modules - Modules written by other developers that we can use in
+our application
+
+
+Local Modules
+
+CommonJS
+CommonJS is a standard that states how a module should be structured and
+shared
+Node.js adopted CommonJS when it started out and is what you will see in code
+bases
+
+/add.js
+module.exports = add
+
+/sum.js
+const add = require("./add.js");  //common js   (Loading the add module to the module where we are requiring)
+>> the return value doesn't have to be same as exported value.
+>> no need to mention .js extension if required.
+
+
+
+****************************
+>> Module Wrappings
+
+/superman.js
+const superHero = "Batman";
+console.log(superHero);
+
+/batman.js
+const superHero = "Superman";
+console.log(superHero);
+
+/index.js
+require("./batman");
+require("./superman");
+
+now run the index.js >> You will notice both the modules runs with its own scope 
+without any confliction wvwn if both modules use same variable names.
+THats because it follows a IIFE pattern.
+
+We are familiar with Immediately Invoked Function Execution.
+
+The above module runs as follows under the Hood.
+
+/index.js
+
+(function () {
+const superHero = "Batman";
+console.log(superHero);
+})();
+(function () {
+const superHero = "Superman";
+console.log(superHero);
+})();
+
+Before a modules code is executed , Node.js will wrap it with a function wrapper that 
+provides module scope.This saves us from conflicting variabel and functions.
+
+
+///How does actually the module is wrapped under the Hood
+
+(function (exports,requrie,module,__filename,__dirname) {
+const superHero = "Batman";
+console.log(superHero);
+})();
+
+
+Following properties are passed in by defualt for further processings
+__filename : - The file name of the current module before execution.
+__dirname : - The Dir name of the current module.
+require :- Its a function which is used to importing a module just by mentioning the path.
+
+
+>> Module Caching 
+
+https://youtu.be/JQfOtwfDohY?si=jM_bOzj95oj3H7g-
+
+>> Module Exports vs exports
+
+https://youtu.be/ghUIlSNRru0?si=2xf6ejGKvF_kkX1M
+
+
+Run the node in watch mode( watches for changes in modules in index.js and the content)
+
+node --watch index.js
+
+
+
+Sections covered *****************
+
+What is a module and what is the need for modules?
+Types of modules in Node.js
+Local modules
+CommonJS module format
+Module wrapper (IIFE)
+Module caching
+Patterns for importing and exporting modules in CommonJS and ESM format
+Importing JSON data and watch mode

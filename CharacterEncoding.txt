@@ -1,0 +1,49 @@
+I hope Binary data is pretty straight forward!!
+Computers store and represent data in binary format which is a collection of Os and 1s
+Each 0 or 1 is called a binary digit or bit for short To work with a piece of data, a 
+computer needs to convert that data into its binary representation.
+
+eg.
+
+1 - 1
+2 - 10
+3 - 11
+4 - 100  
+
+Its just Base 2 Numeric system.
+
+ 1     0     0
+2^2   2^1   2^0    
+
+1 is present above 2^2 which is 4
+
+ 1     1     0
+2^2   2^1   2^0 
+
+1 is present above 2^1 and 2^2 which is 2^1+2^2 = 6
+
+
+>> Characters to Binary Format
+
+Characters are converted to Number Based on Character Sets and then converted 
+to Binary representation
+Character Sets are predefined lists of characters represented by numbers
+
+Unicode and ASCII are character sets which are the most popular ones
+In browser console if you run "V".charCodeAt() we will get 86 which is a unicode.
+
+
+>> Character Encoding
+
+Character encoding dictates how to represent a number in a character set as binary data
+before it can be stored in a computer
+It dictates how many bits to use to represent the number
+Example of a character encoding system is UTF-8
+UTF-8 states that characters should be encoded in bytes (8 bits)
+Eight 1s or Os should be used to represent the code of any character in binary
+4 => 100 => 00000100
+
+V => 86 => 01010110
+
+Similar guidelines also exist on how images and videos should be encoded and stored in 
+binary format

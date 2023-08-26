@@ -1,0 +1,68 @@
+The Modules we are gonna focus on are
+> path
+> events
+> fs
+> stream
+> http
+
+>> Path Modules
+ The path modules provides utilities for working with file and directory paths
+ 
+ const path = require("node:path")  //We are prefixing with node to show its a built in module.
+ 
+ path.basename(__filename) //gives us the last part of the path.
+ path.extname(__filename) //gives us the extension of the path.
+ path.parse(__filename) //gives us few important details in Object form
+                          like the root path, ext ,base,name,dir. Can access it using 
+						  Dot notation like we use in normal objects
+ path.basename(path.parse(__filename)) //gives us the path from the object mentioned by parse
+ path.isAbsolute(__filename) //gives us a Boolean value. return False its its realtive path.
+ path.join("folder1","folder2","index.html")
+ path.join(__dirname,"index.js")
+ 
+ path.resolve(__dirname,"index.js")  //It works differently from join.
+ 
+ if any "/" is mentioned in the path then that is considered as the root folder or otherise absolute
+ path will be added.
+ 
+ 
+node: Protocol (Using this prefix while importing has following benefites)
+
+Makes it perfectly clear that the import is a Node.js builtin module
+Makes the import identifier a valid absolute URL
+Avoids conflicts for future Node.js built-in modules
+
+
+>>Events module
+
+The events module allows us to work with events in Node.js
+An event is an action or an occurrence that has happened in our application that
+we can respond to
+Using the events module, we can dispatch our own custom events and respond to
+those custom events in a non-blocking manner
+
+
+> To use this module we must import it
+const EventEmmiter = require("node:events");
+
+const emitter = new EventEmitter();
+emitter.on("order-pizza",()=>{
+	console.log("Order Received! Baking a pizza!");    //This responds the output to an event "order-pizza"
+})
+
+emitter.emit("order-pizza"); //This emits an event namely "order-pizza"
+
+//if you wanna pass in the params along with emitting the event you can do as follows
+
+emitter.on("order-pizza",(size,toppings)=>{
+	console.log(`Order Received! Baking a ${size} pizza with ${toppings} topping!`);    
+})
+
+emitter.emit("order-pizza","large","mushroom"); //This emits an event namely "order-pizza"
+
+
+//You can have mutliple event reponse functions
+
+
+** Important ....you can inherit from the EventEmitter using your custom class.
+Checkout a file namely customUseEvent.mjs that deals with the above mentioned functionality.

@@ -1,0 +1,9 @@
+What can you build with Node js ?
+
+
+>> Traditional Websites
+>> Backend services like APIs
+>> Real-time Applications
+>> Streaming Services
+>> CLI tools
+>> Multiplayer Games
